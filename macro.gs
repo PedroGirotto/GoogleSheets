@@ -51,14 +51,19 @@ function ComparaçãoAB(){
   valor_A = cA.getValues();
   valor_B = cB.getValues();
 
-
   // Compara todos os valores de A com B, caso sejam iguais a celula da coluna B será pintada de uma cor
+  var igual = false;
   valor_A.forEach(function(valorA, i){
     valor_B.forEach(function(valorB, j){
       if(valorA[0] == valorB[0]){
         folha.getRange(j+2, 2).setBackground("#90EE90");
+        igual = true;
       }
     })
+    if(igual){
+      folha.getRange(i+2, 1).setBackground("#ffb27a");
+      igual = false;
+    }
   })
 
 // fim do código
